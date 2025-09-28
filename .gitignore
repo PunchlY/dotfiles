@@ -14,7 +14,6 @@
 !/.config/alacritty
 !/.config/alacritty/alacritty.toml
 !/.config/alacritty/themes
-!/.config/alacritty/themes/**/*
 
 !/bin
 !/bin/24-bit-color.sh

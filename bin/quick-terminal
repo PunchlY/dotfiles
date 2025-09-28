@@ -1,0 +1,15 @@
+#!/bin/bash
+
+trap 'sleep 1; rm -f "$TMPFILE"' EXIT
+
+TMPFILE=$(mktemp) || exit 1
+
+cat >"$TMPFILE" <<EOF
+source-file ~/.tmux.conf
+
+set -g focus-events on
+
+set-hook -g client-focus-out 'run-shell "tmux if -F \\"#{==:#{session_name},Quick}\\" \\"detach-client -t #{client_tty}\\""'
+EOF
+
+exec tmux -f "$TMPFILE" new-session -A -s Quick

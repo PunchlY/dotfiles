@@ -1,0 +1,35 @@
+[general]
+import = [
+  "./themes/themes/tokyo_night_enhanced.toml",
+]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+opacity = 0.85
+# blur = true
+decorations_theme_variant = "Dark"
+
+[font]
+normal.family = "Maple Mono Normal NF CN"
+size = 12
+
+[[hints.enabled]]
+command = "xdg-open"
+hyperlinks = true
+post_processing = true
+persist = false
+mouse = { mods = "Control", enabled = true }
+binding = { key = "O", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`\\\\]+"
+
+[[keyboard.bindings]]
+key = "T"
+mods = "Control|Shift"
+action = "CreateNewWindow"
+
+[[keyboard.bindings]]
+key = "Q"
+mods = "Control|Shift"
+chars = "\u0002d"

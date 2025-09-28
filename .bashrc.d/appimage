@@ -1,0 +1,35 @@
+#/usr/bin/env bash
+
+_appimage_completions() {
+    COMPREPLY=( $(compgen -W "
+      --appimage-extract
+      --appimage-help
+      --appimage-mount
+      --appimage-offset
+      --appimage-portable-home
+      --appimage-portable-config
+      --appimage-signature
+      --appimage-updateinfo
+      --appimage-updateinformation
+      --appimage-version
+    " -- "${COMP_WORDS[COMP_CWORD]}") )
+}
+
+_appimage_hook() {
+  while IFS= LC_ALL=C read -r cmd; do
+    complete -r "$cmd" 2>/dev/null
+  done < <(complete -p 2>/dev/null | awk '/\.\/.*\.appimage$/ { print $NF }')
+  while IFS= LC_ALL=C read -r path; do
+    complete -o bashdefault -o default -F _appimage_completions "$path"
+  done < <(find . -maxdepth 1 -type f -executable -name "*.appimage")
+}
+
+# if [[ ";${PROMPT_COMMAND[*]:-};" != *";_appimage_hook;"* ]]; then
+#   if [[ "$(declare -p PROMPT_COMMAND 2>&1)" == "declare -a"* ]]; then
+#     PROMPT_COMMAND=(_appimage_hook "${PROMPT_COMMAND[@]}")
+#   else
+#     PROMPT_COMMAND="_appimage_hook${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+#   fi
+# fi
+
+complete -o bashdefault -o default -F _appimage_completions runtime.appimage

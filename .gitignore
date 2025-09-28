@@ -1,7 +1,7 @@
 *
 
 !.gitignore
-!.gitmodules
+!/.gitmodules
 
 !/.bashrc
 !/.bashrc.d
@@ -12,12 +12,13 @@
 !/.tmux.conf
 
 !/.config
-
 !/.config/alacritty
 !/.config/alacritty/alacritty.toml
 !/.config/alacritty/themes
-
 !/.config/breezerc
+!/.config/nvim
+!/.config/nvim/init.lua
+!/.config/nvim/lazyvim.json
 
 !/bin
 !/bin/24-bit-color.sh

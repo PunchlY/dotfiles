@@ -1,5 +1,5 @@
 *
-!.git
+
 !.gitignore
 !.gitmodules
 
@@ -12,9 +12,12 @@
 !/.tmux.conf
 
 !/.config
+
 !/.config/alacritty
 !/.config/alacritty/alacritty.toml
 !/.config/alacritty/themes
+
+!/.config/breezerc
 
 !/bin
 !/bin/24-bit-color.sh

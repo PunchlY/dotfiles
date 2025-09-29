@@ -1,7 +1,9 @@
 *
 
 !.gitignore
-!/.gitmodules
+!.gitmodules
+
+!.directory
 
 !/.bashrc
 !/.bashrc.d
@@ -9,6 +11,7 @@
 !/.bashrc.d/appimage
 
 !/.bunfig.toml
+
 !/.tmux.conf
 
 !/.config

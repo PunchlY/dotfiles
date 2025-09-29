@@ -14,7 +14,7 @@ alias ll='ls -al'
 alias l.='ls -d .*'
 alias la='ls -A'
 
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')";'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias ..='cd ..'
 alias ~='cd ~'
@@ -27,7 +27,7 @@ alias 644='chmod 644'
 alias 700='chmod 700'
 alias 755='chmod 755'
 
-alias ips='ip addr | awk '\''/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1", "g", $2)}'\'';'
+alias ips='ip addr | awk '\''/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1", "g", $2)}'\'''
 
 
 if [ -n "$TMUX" ]; then
@@ -36,6 +36,8 @@ else
   alias cls='clear -x;'
 fi
 
+alias .bashrc='. ~/.bashrc'
+
 alias o='xdg-open &>/dev/null'
 alias n='nvim'
-alias t='fd --hidden --no-ignore --ignore-file .gitignore | tree --fromfile | sed "1s/^\./$(basename "$PWD")/";'
+alias t='([ -f .gitignore ] && fd -IH --ignore-file .gitignore) | tree --fromfile'

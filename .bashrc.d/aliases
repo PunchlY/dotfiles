@@ -33,7 +33,7 @@ alias ips='ip addr | awk '\''/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\
 if [ -n "$TMUX" ]; then
   alias cls='clear -x; tmux clear-history;'
 else
-  alias cls='clear -x;'
+  alias cls='clear;'
 fi
 
 alias .bashrc='. ~/.bashrc'

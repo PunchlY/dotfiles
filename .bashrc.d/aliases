@@ -29,7 +29,6 @@ alias 755='chmod 755'
 
 alias ips='ip addr | awk '\''/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1", "g", $2)}'\'''
 
-
 if [ -n "$TMUX" ]; then
   alias cls='clear -x; tmux clear-history;'
 else
@@ -40,6 +39,7 @@ alias .bashrc='. ~/.bashrc'
 
 alias o='xdg-open &>/dev/null'
 alias n='nvim'
-alias t='([ -f .gitignore ] && fd -IH --ignore-file .gitignore) | tree --fromfile'
+alias t='([ -f .gitignore ] && fd -IH --exclude .git --ignore-file .gitignore) | tree --fromfile'
 
 alias dotfiles='git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+__git_complete dotfiles __git_main

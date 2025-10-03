@@ -17,7 +17,6 @@
 !/.config
 !/.config/alacritty
 !/.config/alacritty/alacritty.toml
-!/.config/alacritty/themes
 !/.config/breezerc
 !/.config/nvim
 !/.config/nvim/init.lua

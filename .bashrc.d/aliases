@@ -41,3 +41,5 @@ alias .bashrc='. ~/.bashrc'
 alias o='xdg-open &>/dev/null'
 alias n='nvim'
 alias t='([ -f .gitignore ] && fd -IH --ignore-file .gitignore) | tree --fromfile'
+
+alias dotfiles='git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'

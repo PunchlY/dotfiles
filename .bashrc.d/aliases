@@ -42,4 +42,5 @@ alias n='nvim'
 alias t='([ -f .gitignore ] && fd -IH --exclude .git --ignore-file .gitignore) | tree --fromfile'
 
 alias dotfiles='git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+source /usr/share/bash-completion/completions/git
 __git_complete dotfiles __git_main
